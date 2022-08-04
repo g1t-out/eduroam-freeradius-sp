@@ -1,0 +1,8 @@
+network={
+        phase1="tls_disable_tlsv1_0=1 tls_disable_tlsv1_1=1 tls_disable_tlsv1_2=0 tls_disable_tlsv1_3=1 peapver=0"
+        key_mgmt=WPA-EAP
+        identity="user@domain.edu"
+        anonymous_identity="@domain.edu"
+        password="userpassword"
+        phase2="eapauth=MSCHAPV2 mschapv2_retry=0"
+}

@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+    freeradius:
+      image: eduroam-freeradius-sp:1
+      build: 
+        context: .
+      container_name: eduroam-freeradius-sp
+      volumes:
+        - type: bind
+          source: /home/freeradius/logs
+          target: /var/log/radius
+        - type: bind
+          source: ./config
+          target: /config
+          read_only: true
+      ports:
+        - "1812:1812/udp"
+        - "1813:1813/udp"
+      tty: true
+      restart: unless-stopped:0
+      command: /config/run.sh

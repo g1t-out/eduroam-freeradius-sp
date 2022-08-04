@@ -1,0 +1,35 @@
+proxy server {
+        default_fallback        = no
+}
+ 
+home_server antarctica-flr-1 {
+        type                    = auth+acct
+        ipaddr                  = <<FLR1IP>>
+        port                    = 1812
+        secret                  = <<Secret>>
+        status_check            = status-server
+}
+ 
+home_server antarctica-flr-2 {
+        type                    = auth+acct
+        ipaddr                  = <<FLR2IP>>
+        port                    = 1812
+        secret                  = <<Secret>>
+        status_check            = status-server
+}
+ 
+home_server_pool EDUROAM {
+        type                    = fail-over
+        home_server             = antarctica-flr-1
+        home_server             = antarctica-flr-2
+}
+ 
+realm NULL {
+    virtual_server  = auth-reject
+    nostrip
+}
+ 
+realm "~.+$" {
+        pool                    = EDUROAM
+        nostrip
+}

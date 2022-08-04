@@ -1,0 +1,31 @@
+client localhost {
+    ipaddr = 127.0.0.1
+    proto = *
+    secret = <<TestSecret>>
+    require_message_authentication = no
+    nas_type = other
+    limit {
+        max_connections = 16
+        lifetime = 0
+        idle_timeout = 30
+    }
+}
+
+client access-point-1 {
+    ipaddr                        = <<AccessPoint1IP>>
+    netmask                       = 32
+    secret                        = <<AccessPoint1Secret>>
+    shortname                     = <<AccessPoint1Shortname>>
+    virtual_server                = eduroam
+    require_message_authenticator = yes
+}
+
+
+client access-point-2 {
+    ipaddr                        = <<AccessPoint2IP>>
+    netmask                       = 32
+    secret                        = <<AccessPoint2Secret>>
+    shortname                     = <<AccessPoint2Shortname>>
+    virtual_server                = eduroam
+    require_message_authenticator = yes
+}
