@@ -28,7 +28,7 @@ then
 fi
 
 echo "Fixing permissions on the /var/logs/radius directory."
-chown -R radius:radius /var/logs/radius
+chown -R radius:radius /var/log/radius
 echo "Starting Radius..."
 /usr/sbin/radiusd -f
 
