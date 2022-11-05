@@ -5,7 +5,9 @@ Eudroam is the secure, world-wide roaming access (IE Internet) service developed
 
 This uses an Alpine Linux image, installs FreeRadius and a few other tools and then copies configurations to the proper place. I chose to use an Alpine image because the freeradius/freeradius-server Alpine images do not include ARM64 architecture (I wanted to run this on a Raspberry Pi).
 
-The /config folder is mounted read-only within the container. The /config/run.sh is what is called when the container starts. This script will copy the configuration from this folder to the proper place, fix permissions on the logging folder, and then start FreeRadius. A second mount is exposed to the host which contains the log files from FreeRadius, in-order to satisfy logging recommendations.
+The /config folder is mounted read-only within the container. The /config/run.sh is what is called when the container starts. This script will copy the configuration from this folder to the proper place, fixes permissions on the logging folder, and then starts FreeRadius. A second mount is exposed to the host which contains the log files from FreeRadius, in-order to satisfy logging recommendations.
+
+Docker can be installed by running: `curl -sSL https://get.docker.com | sh`. If you'd like more information on docker, you can visit [docker's webiste](https://docs.docker.com/get-started/)
 
 This was configured following the instructions on GEANT's [wiki](https://wiki.geant.org/display/H2eduroam/eduroam+SP).
 
