@@ -27,8 +27,8 @@ then
     cp /config/proxy.conf /etc/raddb/
 fi
 
-echo "Fixing permissions on the /var/logs/radius directory."
-chown -R radius:radius /var/logs/radius
+echo "Fixing permissions on the /var/log/radius directory."
+chown -R radius:radius /var/log/radius
 echo "Starting Radius..."
 /usr/sbin/radiusd -f
 
