@@ -1,7 +1,7 @@
 version: '3.7'
 services:
     freeradius:
-      image: eduroam-freeradius-sp:3.18
+      image: eduroam-freeradius-sp:3.22
       build: 
         context: .
       container_name: eduroam-freeradius-sp

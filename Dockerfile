@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM alpine:3.22
 
 
 RUN apk add freeradius freeradius-eap tcpdump wpa_supplicant \
